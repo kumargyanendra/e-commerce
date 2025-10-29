@@ -43,7 +43,7 @@ export const signup = async (req, res) => {
 
     // Return full user object (contains hashed password)
     // NOTE: user is a Mongoose document; convert to plain object if you want
-    const fullUser = user.toObject(); // includes hashed password
+    const fullUser = user.toObject(); // ye MongoDB document ko plain JavaScript object me convert karta hai., includes hashed password
 
     return res.status(201).json({
       message: "User created successfully",

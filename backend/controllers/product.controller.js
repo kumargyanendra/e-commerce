@@ -22,9 +22,9 @@ export const getFeaturedProducts = async (req, res) => {
     }
 
     console.log('Fetching featured products from database');
-    const products = await Product.find({ isFeatured: true }).lean();
+    const products = await Product.find({ isFeatured: true }).lean(); //plain JavaScript object me convert kar deta hai,
     // Cache for 1 hour (3600 seconds)
-    await redis.set('featuredProducts', JSON.stringify(products), 'EX', 3600);
+    await redis.set('featuredProducts', JSON.stringify(products));
 
     return res.status(200).json(products);
   } catch (error) {
@@ -131,7 +131,7 @@ export const toggleFeaturedProduct = async (req, res) => {
       return res.status(404).json({ message: 'Product not found' });
     }
 
-    product.isFeatured = !product.isFeatured;
+    product.isfeatured = !product.isfeatured;
     const updatedProduct = await product.save();
 
     await updateFeaturedProductsCache();
