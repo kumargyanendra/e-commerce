@@ -18,10 +18,14 @@ app.use("/api/auth", authRoutes);
 app.use("/api/products", productRoutes);
 app.use('/api/cart', cartRoutes);
 app.use('/api/coupon', couponRoutes);
-app.use('/api/payments', paymentRoutes);
+app.use('/api/payments', paymentRoutes); 
 
 const PORT = process.env.PORT || 3000;
 
+
+app.get('/', (req, res) => {
+  res.send('Welcome to the E-commerce API, backend working prpoperly!');
+});
 
 
 console.log('Starting server...'); 
