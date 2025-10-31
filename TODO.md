@@ -1,0 +1,7 @@
+- [x] Check Node.js version
+- [x] Install backend packages (root directory)
+- [x] Install frontend packages (frontend directory)
+- [x] Run backend development server
+- [x] Check package versions
+- [x] Reinstall frontend packages (using package-lock.json)
+- [x] Check frontend package versions again
